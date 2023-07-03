@@ -96,6 +96,16 @@ Update GitIgnore to not include data (BE)
 
 # PANIIIIIC!
 
-Welp... Times up, if anything... I'm late... but I'm using this extra few minutes to just run through some last minute thoughts.\
-Its a shame I couldnt put more time into this... And I probably will continue to put more time.\
-The next steps would be:\
+Welp... Times up, if anything... I'm late... but I'm using this extra few minutes to just run through some last minute thoughts. \
+Its a shame I couldnt put more time into this... And I probably will continue to put more time. \
+The next steps would be: \
+Add the favorites... would just need to clean state and pull data from the localStorage \
+Make the sort more visible, perhaps create a component below the request button to sort. \
+On scroll down page further than header... it becomes sticky. \
+The individual asteroid data. I've just realised I missed that... \
+A better time/date component to blur out none probable dates. \
+Data caching on the server side... so I can separate the days in json... and then merge them together for future requests spanning longer than a week. \
+Error handling. \
+The great allmighty vision I had to start this project, which would have been a display to shwo the world and then meteorites and their position/size respectively. \
+MOBILE RESPONSIVENESS! I would probably remove less needed data on the list, as having the single element would display the details. \
+Better Header.
