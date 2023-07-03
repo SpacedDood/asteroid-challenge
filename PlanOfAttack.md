@@ -68,3 +68,28 @@ Its been a while since I last tinkered with node and its reminded me dearly abou
 I dont know if I am going to keep this up and running... but we shall see... I'm going to cool off and start working on some base react in the meantime and retract my steps with backend after.
 
 My code isnt clean at this point... because its in its young stages and mess is how I go along. Some of it doesn't even work.
+
+# The Final Countdown
+
+Okay... So its early morning. What was meant to be a half hour break turned into a 4 hour fever dream. But alas, I'm semi rested and glad for it.
+ONWARDS!
+
+So backend is a total mess... but FE is in a pretty good shape. Checklist panic time.
+
+Display a list of asteroids (Done)
+Add them to favourite (Done)
+
+Sort the asteroids by name (Semi Done)
+Show a list of favourite (need to do)
+See the detail of the asteroids by clicking on one of the items (2 in one)
+Display details of favourite asteroids by click on the items form the list (2 in one)
+
+Search by a range of dates (Backend)
+
+Other bits:
+Setup Init Readme
+Update react to use correct port
+Build
+Update GitIgnore to not include data (BE)
+
+4 hours to go... Dont Panic!

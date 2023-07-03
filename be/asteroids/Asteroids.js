@@ -66,12 +66,6 @@ router.get('/', async (req, res) => {
   }
 })
 
-Date.prototype.addDays = function(days) {
-    var date = new Date(this.valueOf());
-    date.setDate(date.getDate() + days);
-    return date;
-}
-
 router.post("/fetchData", async (req, res) => {
   console.log("data requested");
   console.log(req)
@@ -87,6 +81,13 @@ router.post("/fetchData", async (req, res) => {
   res.send("YEET!")
 })
 
+/* DATE STRINGS PROCESSING */
+
+Date.prototype.addDays = function(days) {
+    var date = new Date(this.valueOf());
+    date.setDate(date.getDate() + days);
+    return date;
+}
 
 function formatDateString(theDateObject) {
   let day = theDateObject.getDate();
@@ -101,7 +102,6 @@ function formatDateString(theDateObject) {
   formattedDate = year + "-" + month + "-" + day;
   return formattedDate;
 }
-
 
 
 module.exports = router;

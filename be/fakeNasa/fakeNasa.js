@@ -60,4 +60,38 @@ async function readFile(path) {
     });
   }
 
+
+
+
+/* JUST SOME TEST DATA INPUTS */
+router.get('/thisweek', async (req, res) => {
+
+  await readFile(saveLocation + "2606-0207.json")
+  .then((data) => {
+    console.log("datas!")
+    //console.log(data)
+    res.json(JSON.parse(data))
+  })
+  .catch((error) => {
+    console.error("ERROR!")
+    res.send("error")
+  })
+
+})
+
+router.get('/nextweek', async (req, res) => {
+
+  await readFile(saveLocation + "0307-0907.json")
+  .then((data) => {
+    console.log("datas!")
+    //console.log(data)
+    res.json(JSON.parse(data))
+  })
+  .catch((error) => {
+    console.error("ERROR!")
+    res.send("error")
+  })
+
+})
+
 module.exports = router;

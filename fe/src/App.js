@@ -1,34 +1,54 @@
 import logo from './logo.svg';
 import './App.css';
 
+import AstroList from "./components/AstroList";
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Astro
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
 
-      <div>
-        <p>Data Pull:</p>
-        <div>
-          <input type="date" id="start" name="trip-start" value="2018-07-22" min="2018-01-01" max="2018-12-31" onChange={pullData}/>
+      <div className="displayArea">
+
+        <div className="spaceArea"></div>
+
+        <div className="dateArea">
+          <p>Selected Dates:</p>
+
+          <div className="dateFields">
+            <div>
+              <label htmlFor="start">Start Date:</label>
+              <input type="date" id="start" name="trip-start" value="2023-07-22" onChange={pullData}/>
+            </div>
+            <div>
+              <label htmlFor="end">End Date:</label>
+              <input type="date" id="end" name="trip-end" value="2023-07-22" onChange={pullData}/>
+            </div>
+          </div>
+
+          <div className="dateButton">Ping NASA!</div>
+
         </div>
+
+        <div className="asteroidArea">
+
+          <AstroList />
+
+        </div>
+
       </div>
     </div>
   );
 }
 
+
+
+// Just a placeholder for testing dynamically pulling data.
 function pullData(event) {
   console.log(event.target.value)
 
@@ -49,8 +69,6 @@ function pullData(event) {
   })
 
   console.log(JSON.stringify(jsonData))
-
-
 }
 
 export default App;
