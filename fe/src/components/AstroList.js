@@ -7,8 +7,7 @@ class AstroList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: null,
-      astroList: [],
+      astroList: null,
       favor: []
     };
   }
@@ -42,6 +41,8 @@ class AstroList extends Component {
       })
   }
 
+  /* FAVORITES */
+
   loadFavorAstro = () => {
     var data = localStorage.getItem("favorites");
     //console.log(data);
@@ -74,6 +75,8 @@ class AstroList extends Component {
       localStorage.setItem("favorites", JSON.stringify(favorData))
     }
   }
+
+  /* SORTING */
 
   sortList = (parameterName) => {
     console.log("sorting")
@@ -121,7 +124,9 @@ class AstroList extends Component {
       </div>
 
         {
-          this.state.astroList.map(astro => <AstroElement key={astro.id} astroData={astro} favourFunc={this.favorAstro}/>)
+          this.state.astroList != null
+          ? this.state.astroList.map(astro => <AstroElement key={astro.id} astroData={astro} favourFunc={this.favorAstro}/>)
+          : <div class="loading">Loading...</div>
         }
 
       </div>

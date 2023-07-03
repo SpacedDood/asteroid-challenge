@@ -6,20 +6,7 @@ var fs = require("fs");
 
 const asterURL = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=DEMO_KEY"
 
-/* SAVE DATA */
 
-const saveLocation = "./data/"
-const getDateFileUrl = (theDate) => {
-  return saveLocation + theDate + ".json";
-}
-
-let testData = (date) => {
-  return {
-    name:"Barry",
-    time: date,
-    size:"awesome"
-  }
-}
 
 /* GET DATA */
 
@@ -103,5 +90,23 @@ function formatDateString(theDateObject) {
   return formattedDate;
 }
 
+
+
+/* TO BE CONTINUED */
+
+/* SAVE DATA */
+
+const saveLocation = "./data/"
+const getDateFileUrl = (theDate) => {
+  return saveLocation + theDate + ".json";
+}
+
+let testData = (date) => {
+  return {
+    name:"Barry",
+    time: date,
+    size:"awesome"
+  }
+}
 
 module.exports = router;

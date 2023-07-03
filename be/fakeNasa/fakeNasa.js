@@ -6,9 +6,9 @@ var fs = require("fs");
 
 WHATS THIS?!
 
-Nasa allows for 30 requests per hour and 50 requests per day... seeing how...
+Nasa allows for 30 requests per hour and 50 requests per day...
 
-I only found that out... means I only have 20 remaining... potentially.
+seeing how... I only found that out with the error... means I only have 20 remaining... potentially.
 
 So IM FAKING NASAS API to further test that my thing works correctly.
 
@@ -59,9 +59,6 @@ async function readFile(path) {
       });
     });
   }
-
-
-
 
 /* JUST SOME TEST DATA INPUTS */
 router.get('/thisweek', async (req, res) => {

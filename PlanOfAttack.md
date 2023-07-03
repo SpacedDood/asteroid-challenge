@@ -88,7 +88,7 @@ Search by a range of dates (Backend)
 
 Other bits:
 Setup Init Readme
-Update react to use correct port
+Update react to use correct port (DONE)
 Build
 Update GitIgnore to not include data (BE)
 
