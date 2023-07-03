@@ -6,14 +6,15 @@ const port = 3000
 app.use(cors())
 app.use(express.json());
 
-var asteroidsRoutes = require("./asteroids/asteroids");
-var nasaRoutes = require("./fakeNasa/fakeNasa");
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+var asteroidsRoutes = require("./asteroids/asteroids");
 app.use("/asteroids", asteroidsRoutes);
+
+var nasaRoutes = require("./fakeNasa/fakeNasa");
 app.use("/nasa", nasaRoutes);
 
 app.listen(port, () => {

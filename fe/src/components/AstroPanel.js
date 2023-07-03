@@ -23,35 +23,10 @@ const AstroPanel = (props) => {
         <div className="errorMsg"><i>{props.dateValid}</i></div>
       }
 
-      <div className={"dateButton "+(props.dateValid != true && "invalid")}>Request Data</div>
+      <div className={"dateButton "+(props.dateValid != true && "invalid")} onClick={props.getDataRange}>Request Data</div>
 
     </div>
   )
 }
-
-
-// Just a placeholder for testing dynamically pulling data.
-function pullData(event) {
-  console.log(event.target.value)
-
-  var jsonData = {
-    name: "awesome",
-    date: event.target.value
-  }
-
-  fetch('http://localhost:3000/asteroids/fetchData', {  // Enter your IP address here
-      headers: {
-        "Content-Type": "application/json"
-      },
-      method: 'POST',
-      body: JSON.stringify(jsonData) // body data type must match "Content-Type" header
-  })
-  .then((result) => {
-    console.log(result)
-  })
-
-  console.log(JSON.stringify(jsonData))
-}
-
 
 export default AstroPanel;

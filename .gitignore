@@ -1,3 +1,7 @@
+#Ignore the json files in data folders
+be/data/*.json
+
+
 # Logs
 logs
 *.log

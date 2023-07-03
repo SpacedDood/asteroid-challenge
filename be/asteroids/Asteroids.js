@@ -3,44 +3,7 @@ var router = express.Router();
 var fetch = require("node-fetch");
 var fs = require("fs");
 
-
-const asterURL = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=DEMO_KEY"
-
-
-
-/* GET DATA */
-
-async function getDateData(theDateString) {
-  fs.readFile(getDateFileUrl(theDateString), (err, data) => {
-    if (!err && data) {
-      console.log("Got Data!")
-    } else {
-      console.log("Data Not Found, requesting!");
-      saveData(theDateString, JSON.stringify(testData(theDateString)));
-    }
-  })
-}
-
-async function saveData(theDate, theData) {
-  fs.writeFileSync(getDateFileUrl(theDate), theData)
-}
-
-/* PULL DATA */
-
-async function pullData() {
-  await fetch(asterURL)
-  .then(res => res.json())
-  .then((json) => {
-    saveData("25-12-12", JSON.stringify(testData));
-    console.log(json)
-    return json
-  })
-  .catch((error) => {
-    console.error(error);
-    return error;
-  })
-}
-
+/* ROUTES */
 router.get('/', async (req, res) => {
   try {
     let theData = await pullData();
@@ -53,20 +16,53 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.post("/fetchData", async (req, res) => {
+router.post("/getDataRange", async (req, res) => {
   console.log("data requested");
-  console.log(req)
+  //console.log(req)
   console.log(req.body)
 
-  const requestDate = new Date(req.body.date);
-  const requestDateNext = requestDate.addDays(1);
+  //NEEDS PARSING!
+  const requestStartDate = req.body.startDate;
+  const requestEndDate = req.body.endDate;
 
-  console.log(requestDate)
+  const urlString = "https://api.nasa.gov/neo/rest/v1/feed?start_date="+requestStartDate+"&end_date="+requestEndDate+"&api_key=DEMO_KEY"
 
-  getDateData(formatDateString(requestDate))
+  await getFetchData(urlString)
+  .then((data) => {
+    console.log("datas!")
+    console.log(data)
 
-  res.send("YEET!")
+    //JUST INCASE I RUN OUT OF QUERIES
+    //saveData(requestStartDate + "&" + requestEndDate, JSON.stringify(data));
+
+    res.json(data)
+  })
+  .catch((error) => {
+    console.error("ERROR!")
+    console.log(error)
+    res.send("error")
+  })
+
+
 })
+
+
+
+
+
+/* PULL DATA */
+async function getFetchData(path) {
+  return new Promise((resolve, reject) => {
+    fetch(path)
+    .then(res => res.json())
+    .then((json) => {
+      resolve(json);
+    })
+    .catch((error) => {
+      reject(err);
+    })
+  });
+}
 
 /* DATE STRINGS PROCESSING */
 
@@ -91,7 +87,6 @@ function formatDateString(theDateObject) {
 }
 
 
-
 /* TO BE CONTINUED */
 
 /* SAVE DATA */
@@ -107,6 +102,39 @@ let testData = (date) => {
     time: date,
     size:"awesome"
   }
+}
+
+async function saveData(theDate, theData) {
+  fs.writeFileSync(getDateFileUrl(theDate), theData)
+}
+
+
+/* BROKEN THINGS TO BE CONTINUED */
+const asterURL = "https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=DEMO_KEY"
+
+async function getDateData(theDateString) {
+  fs.readFile(getDateFileUrl(theDateString), (err, data) => {
+    if (!err && data) {
+      console.log("Got Data!")
+    } else {
+      console.log("Data Not Found, requesting!");
+      saveData(theDateString, JSON.stringify(testData(theDateString)));
+    }
+  })
+}
+
+async function pullData() {
+  await fetch(asterURL)
+  .then(res => res.json())
+  .then((json) => {
+    saveData("25-12-12", JSON.stringify(testData));
+    console.log(json)
+    return json
+  })
+  .catch((error) => {
+    console.error(error);
+    return error;
+  })
 }
 
 module.exports = router;

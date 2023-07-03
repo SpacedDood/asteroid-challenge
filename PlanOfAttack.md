@@ -93,3 +93,9 @@ Build
 Update GitIgnore to not include data (BE)
 
 4 hours to go... Dont Panic!
+
+# PANIIIIIC!
+
+Welp... Times up, if anything... I'm late... but I'm using this extra few minutes to just run through some last minute thoughts.\
+Its a shame I couldnt put more time into this... And I probably will continue to put more time.\
+The next steps would be:\

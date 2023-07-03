@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "set PORT=80 && react-scripts start",
-    "start-mac": "PORT=80 react-scripts start",
+    "start-linux-mac": "PORT=80 react-scripts start",
     "start-other": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

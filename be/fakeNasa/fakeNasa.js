@@ -91,4 +91,20 @@ router.get('/nextweek', async (req, res) => {
 
 })
 
+router.post('/testWeek', async (req, res) => {
+
+  await readFile("./data/" + "2020-05-05&2020-05-06.json")
+  .then((data) => {
+    console.log("TEST WEEK datas!")
+    //console.log(data)
+    res.json(JSON.parse(data))
+  })
+  .catch((error) => {
+    console.error("ERROR!")
+    res.send("error")
+  })
+
+})
+
+
 module.exports = router;
